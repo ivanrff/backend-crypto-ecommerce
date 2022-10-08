@@ -53,14 +53,11 @@ public class PerfilController {
 	
 	@PutMapping("/{id}")
 	public ResponseEntity<Object> updatePerfil(@Valid @RequestBody Perfil perfilRequest, @PathVariable Integer id) throws NotFoundException {
-		System.out.println("id: "+id);
-    	System.out.println("julio: " +perfilRequest.getNome());
+
 		try {
             Perfil perfil  = perfilService.update(perfilRequest, id);
             if ((perfil != null) && (perfil.getId() != null)) {
 
-            	System.out.println("id: "+id);
-            	System.out.println("julio: " +perfil.getNome());
                 return ResponseEntity.ok(perfil);
             }
         } catch (IOException e) {

@@ -56,6 +56,10 @@ public class PauloCoin {
 		this.dataAtt = dataAtt;
 	}
 
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	public int getId() {
 		return id;
 	}

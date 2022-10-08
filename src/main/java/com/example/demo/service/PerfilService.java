@@ -43,11 +43,11 @@ public class PerfilService {
 	
 	//update
 	public Perfil update(Perfil perfil, Integer id) throws IOException, NotFoundException {
+		
 		if (perfilRepository.existsById(id)) {
-			System.out.println();
 			Perfil perfilEditado = new Perfil();
+			perfilEditado.setId(id);
 			perfilEditado.setNome(perfil.getNome());
-			
 			perfilRepository.save(perfilEditado);
 			return perfilEditado;
 		}
