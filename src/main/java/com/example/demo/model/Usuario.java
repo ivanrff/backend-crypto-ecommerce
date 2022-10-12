@@ -1,5 +1,7 @@
 package com.example.demo.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -7,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -22,6 +25,9 @@ public class Usuario {
 
 	@Column(name = "cpf")
 	private String cpf;
+	
+	@Column(name = "email")
+	private String email;
 	
 	@Column(name = "cartao_credito")
 	private String cartaoCredito;
@@ -42,12 +48,17 @@ public class Usuario {
 	@JoinColumn(name = "id_perfil")
 	private Perfil perfil;
 	
+	@OneToMany(mappedBy = "usuario", fetch = FetchType.LAZY)
+	private List<Pedido> pedido;
 	
-	public Usuario(String nome, String cpf, String cartaoCredito, String rua, String cidade, String bairro, String uf,
-			Perfil perfil) {
+	
+
+	public Usuario(String nome, String cpf, String email, String cartaoCredito, String rua, String cidade,
+			String bairro, String uf, Perfil perfil) {
 		super();
 		this.nome = nome;
 		this.cpf = cpf;
+		this.email = email;
 		this.cartaoCredito = cartaoCredito;
 		this.rua = rua;
 		this.cidade = cidade;
@@ -75,6 +86,14 @@ public class Usuario {
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public String getCpf() {
@@ -131,6 +150,14 @@ public class Usuario {
 
 	public void setPerfil(Perfil perfil) {
 		this.perfil = perfil;
+	}
+
+	public List<Pedido> getPedido() {
+		return pedido;
+	}
+
+	public void setPedido(List<Pedido> pedido) {
+		this.pedido = pedido;
 	}
 	
 	

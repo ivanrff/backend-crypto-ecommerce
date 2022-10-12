@@ -7,9 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
-
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
@@ -18,12 +15,10 @@ public class PauloCoin {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-	private int id;
+	private Integer id;
     
-    @NotBlank(message = "campo nome vazio")
-    @Size(max = 80, message = "Preencha o nome!")
     @Column(name = "preco_real", nullable = false)
-	private double precoReal;
+	private Double precoReal;
     
     @Column(name = "data_att")
     @DateTimeFormat
@@ -34,17 +29,17 @@ public class PauloCoin {
 		// TODO Auto-generated constructor stub
 	}
 
-	public PauloCoin(double precoReal, LocalDate dataAtt) {
+	public PauloCoin(Double precoReal, LocalDate dataAtt) {
     	super();
     	this.precoReal = precoReal;
     	this.dataAtt = dataAtt;
     }
 
-	public double getPrecoReal() {
+	public Double getPrecoReal() {
 		return precoReal;
 	}
 
-	public void setPrecoReal(double precoReal) {
+	public void setPrecoReal(Double precoReal) {
 		this.precoReal = precoReal;
 	}
 
@@ -56,11 +51,11 @@ public class PauloCoin {
 		this.dataAtt = dataAtt;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
     

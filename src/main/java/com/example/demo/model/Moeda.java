@@ -1,10 +1,15 @@
 package com.example.demo.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Moeda {
@@ -12,7 +17,7 @@ public class Moeda {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-	private int id;
+	private Integer id;
     
     @Column(name = "nome")
 	private String nome;
@@ -20,35 +25,39 @@ public class Moeda {
     @Column(name = "acronimo")
     private String acronimo;
     
-    @Column(name = "url")
-	private String url;
+    @Column(name = "icon_url")
+	private String iconUrl;
     
     @Column(name = "preco_inst")
-	private double precoInst;
+	private Double precoInst;
     
     @Column(name = "max_diario")
-	private double maxDiario;
+	private Double maxDiario;
     
     @Column(name = "min_diario")
-	private double minDiario;
+	private Double minDiario;
     
     @Column(name = "open")
-	private double open;
+	private Double open;
     
     @Column(name = "close")
-	private double close;
-
+	private Double close;
+    
+    @JsonIgnore
+    @OneToMany(mappedBy = "usuario")
+    private List<Pedido> pedido;
+    
 	public Moeda() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Moeda(String nome, String acronimo, String url, double precoInst, double maxDiario, double minDiario,
-			double open, double close) {
+	public Moeda(String nome, String acronimo, String iconUrl, Double precoInst, Double maxDiario, Double minDiario,
+			Double open, Double close) {
 		super();
 		this.nome = nome;
 		this.acronimo = acronimo;
-		this.url = url;
+		this.iconUrl = iconUrl;
 		this.precoInst = precoInst;
 		this.maxDiario = maxDiario;
 		this.minDiario = minDiario;
@@ -72,57 +81,68 @@ public class Moeda {
 		this.acronimo = acronimo;
 	}
 
-	public String getUrl() {
-		return url;
+	public String getIconUrl() {
+		return iconUrl;
 	}
 
-	public void setUrl(String url) {
-		this.url = url;
+	public void setIconUrl(String iconUrl) {
+		this.iconUrl = iconUrl;
 	}
 
-	public double getPrecoInst() {
+	public Double getPrecoInst() {
 		return precoInst;
 	}
 
-	public void setPrecoInst(double precoInst) {
+	public void setPrecoInst(Double precoInst) {
 		this.precoInst = precoInst;
 	}
 
-	public double getMaxDiario() {
+	public Double getMaxDiario() {
 		return maxDiario;
 	}
 
-	public void setMaxDiario(double maxDiario) {
+	public void setMaxDiario(Double maxDiario) {
 		this.maxDiario = maxDiario;
 	}
 
-	public double getMinDiario() {
+	public Double getMinDiario() {
 		return minDiario;
 	}
 
-	public void setMinDiario(double minDiario) {
+	public void setMinDiario(Double minDiario) {
 		this.minDiario = minDiario;
 	}
 
-	public double getOpen() {
+	public Double getOpen() {
 		return open;
 	}
 
-	public void setOpen(double open) {
+	public void setOpen(Double open) {
 		this.open = open;
 	}
 
-	public double getClose() {
+	public Double getClose() {
 		return close;
 	}
 
-	public void setClose(double close) {
+	public void setClose(Double close) {
 		this.close = close;
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
     
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public List<Pedido> getPedido() {
+		return pedido;
+	}
+
+	public void setPedido(List<Pedido> pedido) {
+		this.pedido = pedido;
+	}
     
 }
