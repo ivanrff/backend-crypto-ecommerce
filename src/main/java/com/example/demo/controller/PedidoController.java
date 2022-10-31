@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.model.Pedido;
 import com.example.demo.service.PedidoService;
 
-@CrossOrigin(origins = "", allowedHeaders = "")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 @RequestMapping("/pedidos") //padrao plural
 public class PedidoController {

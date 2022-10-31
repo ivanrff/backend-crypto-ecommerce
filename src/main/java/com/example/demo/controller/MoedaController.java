@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.model.Moeda;
 import com.example.demo.service.MoedaService;
 
-@CrossOrigin(origins = "", allowedHeaders = "")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 @RequestMapping("/moedas") //padrao plural
 public class MoedaController {

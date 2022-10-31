@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.model.PauloCoin;
 import com.example.demo.service.PauloCoinService;
 
-@CrossOrigin(origins="", allowedHeaders = "")
+@CrossOrigin(origins="*", allowedHeaders = "*")
 @RestController
 @RequestMapping("/paulocoins")
 public class PauloCoinController {
