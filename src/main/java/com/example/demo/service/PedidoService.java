@@ -20,10 +20,7 @@ public class PedidoService {
 	//create
 	public Pedido createPedido(Pedido pedido) {
 		
-		Pedido novoPedido = new Pedido();
-		pedido.setId(novoPedido.getId());
-		
-		return pedido;
+		return pedidoRepository.save(pedido);
 	}
 	
 	//readall

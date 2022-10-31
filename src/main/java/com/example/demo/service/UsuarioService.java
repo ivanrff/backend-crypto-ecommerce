@@ -19,21 +19,9 @@ public class UsuarioService {
 	
 	//create
 	public Usuario createUsuario(Usuario usuario) {
-		Usuario novoUsuario = new Usuario();
+				
+		return usuarioRepository.save(usuario);
 		
-		novoUsuario.setNome(usuario.getNome());
-		novoUsuario.setCpf(usuario.getCartaoCredito());
-		novoUsuario.setEmail(usuario.getEmail());
-		novoUsuario.setCartaoCredito(usuario.getCartaoCredito());
-		novoUsuario.setCidade(usuario.getCidade());
-		novoUsuario.setRua(usuario.getRua());
-		novoUsuario.setUf(usuario.getUf());
-		novoUsuario.setBairro(usuario.getBairro());
-		novoUsuario.setPerfil(usuario.getPerfil());
-		
-		usuarioRepository.save(novoUsuario);
-		
-		return novoUsuario;
 	}
 	
 	//read

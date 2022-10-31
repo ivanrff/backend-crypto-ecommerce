@@ -33,9 +33,10 @@ public class PerfilService {
 	
 	//create
 	public Perfil create(Perfil perfil) {
+		
 		Perfil novoPerfil = new Perfil();
 		novoPerfil.setNome(perfil.getNome());
-		
+		System.out.println(novoPerfil.getId());
 		perfilRepository.save(novoPerfil);
 		
 		return novoPerfil;
