@@ -47,6 +47,15 @@ public class CarteiraController {
 		return ResponseEntity.notFound().build();
 	}
 	
+	//getbyusuarioid
+		@GetMapping("usuario/{id}")
+		public ResponseEntity<Optional<Carteira>> listByUsuarioId(@PathVariable Integer id) throws NotFoundException {
+			if (carteiraService.listByUsuarioId(id) != null) {
+				return ResponseEntity.ok(carteiraService.listByUsuarioId(id));
+			}
+			return ResponseEntity.notFound().build();
+		}
+	
 	//post
 	@PostMapping("/create")
 	public Carteira createCarteira(@Valid @RequestBody Carteira carteira) {

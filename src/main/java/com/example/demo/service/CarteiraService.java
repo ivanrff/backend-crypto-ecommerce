@@ -36,6 +36,10 @@ public class CarteiraService {
 		return carteiraRepository.findById(id);
 	}
 	
+	public Optional<Carteira> listByUsuarioId(Integer id) {
+		return carteiraRepository.findByUsuarioId(id);
+	}
+	
 	public Carteira updateCarteira(Carteira carteira, Integer id) throws IOException, NotFoundException {
 		if (carteiraRepository.existsById(id)) {
 			Carteira carteiraAtt = carteira;
