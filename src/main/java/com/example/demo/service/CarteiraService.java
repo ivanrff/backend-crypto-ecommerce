@@ -22,6 +22,9 @@ public class CarteiraService {
 	public Carteira createCarteira(Carteira carteira) {
 		Carteira novaCarteira = new Carteira();
 		carteira.setId(novaCarteira.getId());
+		
+		carteiraRepository.save(carteira);
+		
 		return carteira;
 	}
 	
