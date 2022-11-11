@@ -57,6 +57,9 @@ public class Usuario {
 	@OneToMany(mappedBy = "usuario", fetch = FetchType.LAZY)
 	private List<Pedido> pedido;
 	
+//	@OneToOne(mappedBy =  "usuario", fetch = FetchType.LAZY)
+//	private Carteira carteira;
+	
 	
 	public Usuario() {
 		super();

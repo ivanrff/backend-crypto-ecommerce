@@ -32,8 +32,8 @@ public class UsuarioService {
 		
 		usuarioRepository.save(usuario);
 		Carteira carteira = new Carteira();
-		carteira.setQtdPauloCoin(null);
-		carteira.setTotalReais(null);
+		carteira.setQtdPauloCoin(0.0);
+		carteira.setTotalReais(0.0);
 		
 		
 		carteira.setPauloCoin(pauloCoinRepository.getById(1));
